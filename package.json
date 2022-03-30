@@ -1,0 +1,62 @@
+{
+  "name": "point-api-docs",
+  "version": "0.0.1",
+  "description": "Point API Docs",
+  "main": "./src/server.js",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development nodemon ./src/server.js",
+    "test": "cross-env NODE_ENV=test jest",
+    "test:coverage": "cross-env NODE_ENV=test jest --coverage",
+    "lint": "eslint ./src/*",
+    "lint:fix": "eslint ./src/* --fix",
+    "docs:build": "openapi bundle docs/v1/index.yml -o ./docs/v1/bundled/openapi.yml",
+    "css:build": "npx tailwindcss -c ./tailwind.config.cjs -i ./src/resources/emails/styles.css -o ./src/resources/emails/styles.min.css",
+    "css:watch": "css:build --watch"
+  },
+  "keywords": [
+    "node",
+    "nodejs",
+    "express",
+    "expressjs",
+    "boilerplate",
+    "api",
+    "mongodb"
+  ],
+  "author": "Martien Dermawan Tanama <martien@pointhub.net> (https://www.pointhub.net)",
+  "license": "ISC",
+  "dependencies": {
+    "compression": "^1.7.4",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.0",
+    "express": "^4.17.1",
+    "helmet": "^5.0.2",
+    "jsonwebtoken": "^8.5.1",
+    "mime-types": "^2.1.34",
+    "winston": "^3.3.3",
+    "winston-daily-rotate-file": "^4.5.5"
+  },
+  "devDependencies": {
+    "@babel/plugin-transform-modules-commonjs": "^7.15.4",
+    "@redocly/openapi-cli": "^1.0.0-beta.69",
+    "@types/jest": "^27.0.1",
+    "autoprefixer": "^10.3.6",
+    "babel-plugin-dynamic-import-node": "^2.3.3",
+    "cross-env": "^7.0.3",
+    "eslint": "^8.9.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-import-resolver-custom-alias": "^1.2.0",
+    "eslint-plugin-import": "^2.24.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "jest": "^27.5.1",
+    "node-mocks-http": "^1.10.1",
+    "nodemon": "^2.0.12",
+    "prettier": "^2.3.2",
+    "supertest": "^6.1.6",
+    "tailwindcss": "^3.0.23"
+  },
+  "imports": {
+    "#src/*": "./src/*"
+  }
+}
