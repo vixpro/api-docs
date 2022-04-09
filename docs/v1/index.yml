@@ -38,3 +38,9 @@ tags:
 paths:
   /admins:
     $ref: './admin.yml'
+  /inventory/transfer-items:
+    $ref: './inventory/transfer-items/transfer-items.yml'
+  /inventory/transfer-items/{id}:
+    $ref: './inventory/transfer-items/transfer-items-by-id.yml'
+  /inventory/transfer-items/export:
+    $ref: './inventory/transfer-items/transfer-items-export.yml'
