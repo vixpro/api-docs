@@ -40,7 +40,7 @@ export default async function app() {
   app.get("/", (req, res) => {
     res.header("Content-Security-Policy", "script-src blob:");
     res.header("Content-Security-Policy", "worker-src blob:");
-    res.sendFile(path.join(process.cwd(), "/docs/index.html"));
+    res.sendFile(path.join(process.cwd(), "/docs/template.html"));
   });
 
   // Send back a 404 error for any unknown api request
