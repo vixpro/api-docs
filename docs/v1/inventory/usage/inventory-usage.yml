@@ -275,6 +275,8 @@ post:
               type: date
             warehouse_id:
               type: integer
+            employee_id:
+              type: integer
             notes:
               type: string
             items:
