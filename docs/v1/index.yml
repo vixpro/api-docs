@@ -41,3 +41,5 @@ paths:
     $ref: './inventory/transfer-items/transfer-items-by-id.yml'
   /inventory/transfer-items/export:
     $ref: './inventory/transfer-items/transfer-items-export.yml'
+  /inventory/usage:
+    $ref: './inventory/usage/inventory-usage.yml'
