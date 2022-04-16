@@ -48,14 +48,16 @@ get:
         type: object
         properties:
                 form.date:
-                  type: date
+                  type: string
+                  format: date
     - name: filter_date_max
       in: query
       schema:
         type: object
         properties:
                 form.date:
-                  type: date
+                  type: string
+                  format: date
     - name: limit
       in: query
       description: Data limit
@@ -127,7 +129,8 @@ get:
                         branch_id:
                           type: integer
                         date:
-                          type: date
+                          type: string
+                          format: date
                         number:
                           type: string
                         edited_number:
@@ -153,11 +156,13 @@ get:
                         request_approval_to:
                           type: integer
                         request_approval_at:
-                          type: date
+                          type: string
+                          format: date
                         approval_by:
                           type: integer
                         approval_at:
-                          type: date
+                          type: string
+                          format: date
                         approval_reason:
                           type: integer
                         approval_status:
@@ -167,11 +172,13 @@ get:
                         request_cancellation_by:
                           type: integer
                         request_cancellation_at:
-                          type: date
+                          type: string
+                          format: date
                         request_cancellation_reason:
                           type: string
                         cancellation_approval_at:
-                          type: date
+                          type: string
+                          format: date
                         cancellation_approval_by:
                           type: integer
                         cancellation_approval_reason:
@@ -179,9 +186,11 @@ get:
                         cancellation_status:
                           type: integer
                         created_at:
-                          type: date
+                          type: string
+                          format: date
                         updated_at:
-                          type: date
+                          type: string
+                          format: date
                     items:
                       type: array
                       items:
@@ -198,7 +207,8 @@ get:
                           quantity:
                             type: integer
                           expiry_date:
-                            type: date
+                            type: string
+                            format: date
                           production_number:
                             type: string
                           unit:
@@ -251,11 +261,14 @@ get:
                               archived_by:
                                 type: integer
                               created_at:
-                                type: date
+                                type: string
+                                format: date
                               updated_at:
-                                type: date
+                                type: string
+                                format: date
                               archived_at:
-                                type: date
+                                type: string
+                                format: date
                               label:
                                 type: string
 post:
@@ -272,7 +285,8 @@ post:
             increment_group:
               type: string
             date:
-              type: date
+              type: string
+              format: date
             warehouse_id:
               type: integer
             employee_id:
@@ -336,12 +350,14 @@ post:
                             type: integer
                           created_by:
                             type: integer
-                          update_by:
+                          updated_by:
                             type: integer
                           created_at:
-                            type: date
-                          update_at:
-                            type: date
+                            type: string
+                            format: date
+                          updated_at:
+                            type: string
+                            format: date
                           price:
                             type: integer
                       item_label:
@@ -366,7 +382,8 @@ post:
                         quantity:
                           type: integer
                         expiry_date:
-                          type: date
+                          type: string
+                          format: date
                         production_number:
                           type: string
                         need_recalculate:
@@ -380,15 +397,18 @@ post:
                         is_posted:
                           type: boolean
                         created_at:
-                          type: date
+                          type: string
+                          format: date
                         updated_at:
-                          type: date
+                          type: string
+                          format: date
                         remaining:
                           type: integer
                         remainingInUnit:
                           type: integer
                       require_expiry_date:
-                        type: date
+                        type: string
+                        format: date
                       stock:
                         type: integer
                       stock_reminder:
@@ -406,11 +426,14 @@ post:
                       archived_by:
                         type: integer
                       created_at:
-                        type: date
+                        type: string
+                        format: date
                       updated_at:
-                        type: date
+                        type: string
+                        format: date
                       archived_at:
-                        type: date
+                        type: string
+                        format: date
                       label:
                         type: string
             request_approval_to: 
@@ -442,7 +465,8 @@ post:
                         branch_id:
                           type: integer
                         date:
-                          type: date
+                          type: string
+                          format: date
                         number:
                           type: string
                         edited_number:
@@ -468,11 +492,13 @@ post:
                         request_approval_to:
                           type: integer
                         request_approval_at:
-                          type: date
+                          type: string
+                          format: date
                         approval_by:
                           type: integer
                         approval_at:
-                          type: date
+                          type: string
+                          format: date
                         approval_reason:
                           type: integer
                         approval_status:
@@ -482,11 +508,13 @@ post:
                         request_cancellation_by:
                           type: integer
                         request_cancellation_at:
-                          type: date
+                          type: string
+                          format: date
                         request_cancellation_reason:
                           type: string
                         cancellation_approval_at:
-                          type: date
+                          type: string
+                          format: date
                         cancellation_approval_by:
                           type: integer
                         cancellation_approval_reason:
@@ -494,9 +522,11 @@ post:
                         cancellation_status:
                           type: integer
                         created_at:
-                          type: date
+                          type: string
+                          format: date
                         updated_at:
-                          type: date
+                          type: string
+                          format: date
                   warehouse:
                     type: object
                     properties:
@@ -521,11 +551,14 @@ post:
                       archived_by:
                         type: integer
                       created_at:
-                        type: date
+                        type: string
+                        format: date
                       updated_at:
-                        type: date
+                        type: string
+                        format: date
                       archived_at:
-                        type: date
+                        type: string
+                        format: date
                       label:
                         type: string
                   items:
@@ -544,7 +577,8 @@ post:
                           quantity:
                             type: integer
                           expiry_date:
-                            type: date
+                            type: string
+                            format: date
                           production_number:
                             type: string
                           unit:
@@ -599,10 +633,13 @@ post:
                               archived_by:
                                 type: integer
                               created_at:
-                                type: date
+                                type: string
+                                format: date
                               updated_at:
-                                type: date
+                                type: string
+                                format: date
                               archived_at:
-                                type: date
+                                type: string
+                                format: date
                               label:
                                 type: string

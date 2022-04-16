@@ -1,0 +1,586 @@
+get:
+  tags:
+    - Inventory Usage
+  summary: Read inventory usage
+  description:
+  parameters:
+    - name: id
+      in: path
+      required: true
+      description: Inventory Usage ID
+      schema:
+        type: integer
+    - name: with_archives
+      in: query
+      schema:
+        type: boolean
+        default: true
+    - name: with_origin
+      in: query
+      schema:
+        type: boolean
+        default: true
+    - name: includes
+      in: query
+      description: multi value, divide with coma (;)
+      schema:
+        type: string
+        example: 'warehouse;items.item;form.createdBy;employee'
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              data:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  warehouse_id:
+                    type: integer
+                  employee:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                      name:
+                        type: string
+                      job_title:
+                        type: string
+                      created_at:
+                        type: string
+                        format: date
+                      updated_at:
+                        type: string
+                        format: date
+                  form:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                      branch_id:
+                        type: integer
+                      date:
+                        type: string
+                        format: date
+                      number:
+                        type: string
+                      edited_number:
+                        type: string
+                      edited_notes:
+                        type: string
+                      notes:
+                        type: string
+                      created_by:
+                        type: integer
+                      updated_by:
+                        type: integer
+                      done:
+                        type: integer
+                      increment:
+                        type: integer
+                      increment_group:
+                        type: integer
+                      formable_id:
+                        type: integer
+                      formable_type:
+                        type: string
+                      request_approval_to:
+                        type: integer
+                      request_approval_at:
+                        type: string
+                        format: date
+                      approval_by:
+                        type: integer
+                      approval_at:
+                        type: string
+                        format: date
+                      approval_reason:
+                        type: integer
+                      approval_status:
+                        type: integer
+                      request_cancellation_to:
+                        type: integer
+                      request_cancellation_by:
+                        type: integer
+                      request_cancellation_at:
+                        type: string
+                        format: date
+                      request_cancellation_reason:
+                        type: string
+                      cancellation_approval_at:
+                        type: string
+                        format: date
+                      cancellation_approval_by:
+                        type: integer
+                      cancellation_approval_reason:
+                        type: string
+                      cancellation_status:
+                        type: integer
+                      created_at:
+                        type: string
+                        format: date
+                      updated_at:
+                        type: string
+                        format: date
+                  items:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                        transfer_item_id:
+                          type: integer
+                        item_id:
+                          type: integer
+                        item_name:
+                          type: string
+                        quantity:
+                          type: integer
+                        expiry_date:
+                          type: string
+                          format: date
+                        production_number:
+                          type: string
+                        unit:
+                          type: string
+                        converter:
+                          type: integer
+                        notes:
+                          type: string
+                        stock:
+                          type: integer
+                        item:
+                          type: object
+                          properties:
+                            id:
+                              type: integer
+                            chart_of_account_id:
+                              type: integer
+                            code:
+                              type: integer
+                            barcode:
+                              type: integer
+                            name:
+                              type: integer
+                            size:
+                              type: integer
+                            color:
+                              type: integer
+                            weight:
+                              type: integer
+                            notes:
+                              type: integer
+                            taxable:
+                              type: integer
+                            require_production_number:
+                              type: integer
+                            require_expiry_date:
+                              type: integer
+                            stock:
+                              type: integer
+                            stock_reminder:
+                              type: integer
+                            unit_default:
+                              type: integer
+                            unit_default_purchase:
+                              type: integer
+                            unit_default_sales:
+                              type: integer
+                            created_by:
+                              type: integer
+                            updated_by:
+                              type: integer
+                            archived_by:
+                              type: integer
+                            created_at:
+                              type: string
+                              format: date
+                            updated_at:
+                              type: string
+                              format: date
+                            archived_at:
+                              type: string
+                              format: date
+                            label:
+                              type: string
+patch:
+  tags:
+    - Inventory Usage
+  summary: Update inventory usage
+  description:
+  parameters:
+    - name: id
+      in: path
+      required: true
+      description: Inventory Usage ID
+      schema:
+        type: integer
+  requestBody:
+    content:
+      'application/json':
+        schema:
+          type: object
+          properties:
+            id:
+              type: integer
+            increment_group:
+              type: string
+            date:
+              type: string
+              format: date
+            warehouse_id:
+              type: integer
+            employee_id:
+              type: integer
+            notes:
+              type: string
+            items:
+              type: array
+              items:
+                type: object
+                properties:
+                  item_id:
+                    type: integer
+                  item_name:
+                    type: string
+                  unit:
+                    type: string
+                  converter:
+                    type: integer
+                  quantity:
+                    type: integer
+                  allocation_id:
+                    type: integer
+                  require_production_number:
+                    type: boolean
+                  require_expiry_date:
+                    type: boolean
+                  stock:
+                    type: integer
+                  item:
+                    type: object
+                    properties:
+                      index:
+                        type: integer
+                      id:
+                        type: integer
+                      name:
+                        type: string
+                      label:
+                        type: string
+                      require_production_number:
+                        type: boolean
+                      require_expiry_date:
+                        type: boolean
+                      unit_default:
+                        type: integer
+                      unit_default_purchase:
+                        type: integer
+                      unit_default_sales:
+                        type: integer
+                      unit:
+                        type: object
+                        properties:
+                          id:
+                            type: integer
+                          label:
+                            type: string
+                          name:
+                            type: string
+                          converter:
+                            type: integer
+                          disabled:
+                            type: boolean
+                          item_id:
+                            type: integer
+                          created_by:
+                            type: integer
+                          update_by:
+                            type: integer
+                          created_at:
+                            type: string
+                            format: date
+                          update_at:
+                            type: string
+                            format: date
+                          price:
+                            type: integer
+                      item_label:
+                        type: string
+                  warehouse_id:
+                    type: integer
+                  index:
+                    type: integer
+                  dna:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                        form_id:
+                          type: integer
+                        warehouse_id:
+                          type: integer
+                        item_id:
+                          type: integer
+                        quantity:
+                          type: integer
+                        expiry_date:
+                          type: string
+                          format: date
+                        production_number:
+                          type: string
+                        need_recalculate:
+                          type: boolean
+                        quantity_reference:
+                          type: integer
+                        unit_reference:
+                          type: string
+                        converter_reference:
+                          type: integer
+                        is_posted:
+                          type: boolean
+                        created_at:
+                          type: string
+                          format: date
+                        updated_at:
+                          type: string
+                          format: date
+                        remaining:
+                          type: integer
+                        remainingInUnit:
+                          type: integer
+                      require_expiry_date:
+                        type: string
+                        format: date
+                      stock:
+                        type: integer
+                      stock_reminder:
+                        type: integer
+                      unit_default:
+                        type: integer
+                      unit_default_purchase:
+                        type: integer
+                      unit_default_sales:
+                        type: integer
+                      created_by:
+                        type: integer
+                      updated_by:
+                        type: integer
+                      archived_by:
+                        type: integer
+                      created_at:
+                        type: string
+                        format: date
+                      updated_at:
+                        type: string
+                        format: date
+                      archived_at:
+                        type: string
+                        format: date
+                      label:
+                        type: string
+            request_approval_to: 
+              type: integer
+            approver_name:
+              type: string
+            approver_email:
+              type: string
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              data:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  warehouse_id:
+                    type: integer
+                  form:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                      branch_id:
+                        type: integer
+                      date:
+                        type: string
+                        format: date
+                      number:
+                        type: string
+                      edited_number:
+                        type: string
+                      edited_notes:
+                        type: string
+                      notes:
+                        type: string
+                      created_by:
+                        type: integer
+                      updated_by:
+                        type: integer
+                      done:
+                        type: integer
+                      increment:
+                        type: integer
+                      increment_group:
+                        type: integer
+                      formable_id:
+                        type: integer
+                      formable_type:
+                        type: string
+                      request_approval_to:
+                        type: integer
+                      request_approval_at:
+                        type: string
+                        format: date
+                      approval_by:
+                        type: integer
+                      approval_at:
+                        type: string
+                        format: date
+                      approval_reason:
+                        type: integer
+                      approval_status:
+                        type: integer
+                      request_cancellation_to:
+                        type: integer
+                      request_cancellation_by:
+                        type: integer
+                      request_cancellation_at:
+                        type: string
+                        format: date
+                      request_cancellation_reason:
+                        type: string
+                      cancellation_approval_at:
+                        type: string
+                        format: date
+                      cancellation_approval_by:
+                        type: integer
+                      cancellation_approval_reason:
+                        type: string
+                      cancellation_status:
+                        type: integer
+                      created_at:
+                        type: string
+                        format: date
+                      updated_at:
+                        type: string
+                        format: date
+                  items:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                        transfer_item_id:
+                          type: integer
+                        item_id:
+                          type: integer
+                        item_name:
+                          type: string
+                        quantity:
+                          type: integer
+                        expiry_date:
+                          type: string
+                          format: date
+                        production_number:
+                          type: string
+                        unit:
+                          type: string
+                        converter:
+                          type: integer
+                        notes:
+                          type: string
+                        stock:
+                          type: integer
+                        item:
+                          type: object
+                          properties:
+                            id:
+                              type: integer
+                            chart_of_account_id:
+                              type: integer
+                            code:
+                              type: integer
+                            barcode:
+                              type: integer
+                            name:
+                              type: integer
+                            size:
+                              type: integer
+                            color:
+                              type: integer
+                            weight:
+                              type: integer
+                            notes:
+                              type: integer
+                            taxable:
+                              type: integer
+                            require_production_number:
+                              type: integer
+                            require_expiry_date:
+                              type: integer
+                            stock:
+                              type: integer
+                            stock_reminder:
+                              type: integer
+                            unit_default:
+                              type: integer
+                            unit_default_purchase:
+                              type: integer
+                            unit_default_sales:
+                              type: integer
+                            created_by:
+                              type: integer
+                            updated_by:
+                              type: integer
+                            archived_by:
+                              type: integer
+                            created_at:
+                              type: string
+                              format: date
+                            updated_at:
+                              type: string
+                              format: date
+                            archived_at:
+                              type: string
+                              format: date
+                            label:
+                              type: string
+    '422':
+      description: Unprocessable entity
+delete:
+  tags:
+    - Inventory Usage
+  summary: Delete inventory usage
+  description:
+  parameters:
+    - name: id
+      in: path
+      required: true
+      description: Inventory Usage ID
+      schema:
+        type: integer
+  requestBody:
+    content:
+      'application/json':
+        schema:
+          type: object
+          properties:
+            reason:
+              type: string
+  responses:
+    '204':
+      description: No Content
