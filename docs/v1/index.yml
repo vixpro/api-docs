@@ -45,3 +45,7 @@ paths:
     $ref: './inventory/usage/inventory-usage.yml'
   /inventory/usage/${id}:
     $ref: './inventory/usage/inventory-usage-by-id.yml'
+  /inventory/usage/${id}/approve:
+    $ref: './inventory/usage/inventory-usage-approve.yml'
+  /inventory/usage/${id}/reject:
+    $ref: './inventory/usage/inventory-usage-reject.yml'
